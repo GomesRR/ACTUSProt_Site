@@ -1,0 +1,50 @@
+@import 'tailwindcss';
+
+/* Marca do ACTUSProt: amarelo (ações e destaques), cinza claro (fundos), cinza escuro (marca e textos) e branco.
+   O amarelo é para preenchimento, com o texto cinza escuro; texto e link amarelos usam a versão escurecida (-ink). */
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-brand: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --color-brand: #2a2d33;
+  --color-brand-escuro: #1d1f23;
+  --color-primary: #f5c400;
+  --color-primary-hover: #dcb000;
+  --color-primary-soft: #fff8d6;
+  --color-primary-ink: #806500;
+  --color-accent: #f5c400;
+  --color-accent-hover: #dcb000;
+  --color-accent-escuro: #806500;
+  --color-accent-soft: #fff8d6;
+  --color-texto: #2a2d33;
+  --color-muted: #6b7079;
+  --color-borda: #dfe2e7;
+  --color-fundo: #eef0f3;
+  --color-sucesso: #23885f;
+  --color-sucesso-soft: #eaf6f0;
+  --color-perigo: #b42318;
+  --color-perigo-soft: #fef3f2;
+}
+
+html { scroll-behavior: smooth; }
+body { @apply bg-white font-sans text-texto antialiased; }
+section[id] { scroll-margin-top: 5rem; }
+
+@utility btn {
+  @apply inline-flex h-11 items-center justify-center gap-2 rounded-lg px-5 text-sm font-semibold whitespace-nowrap transition disabled:cursor-not-allowed disabled:opacity-60;
+}
+@utility btn-primario {
+  @apply btn bg-primary text-brand shadow-sm hover:bg-primary-hover;
+}
+@utility btn-destaque {
+  /* Botão de destaque: amarelo com texto cinza escuro */
+  @apply btn bg-accent text-brand shadow-sm hover:bg-accent-hover;
+}
+@utility btn-contorno {
+  @apply btn border border-borda bg-white text-texto hover:bg-fundo;
+}
+@utility campo {
+  @apply h-11 w-full rounded-lg border border-borda bg-white px-3.5 text-[15px] text-texto outline-none transition placeholder:text-slate-400 focus:border-primary focus:ring-3 focus:ring-primary/20;
+}
+@utility container-site {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
