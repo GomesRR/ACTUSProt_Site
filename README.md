@@ -1,10 +1,10 @@
 # ACTUSProt: site institucional
 
-Site público do ACTUSProt (gestão para associações): apresenta o sistema e recebe o pedido da **avaliação gratuita**. Só CNPJ, nome e sobrenome, e-mail e telefone são obrigatórios. O pedido vai para o gerenciador de licenças (`ACTUS_Gerente`, compartilhado com o ACTUSPro, rota `POST /publico/avaliacao`), que consulta o CNPJ na Receita, cria a associação no **produto ACTUSProt** com a licença de avaliação, provisiona o ACTUSProt na nuvem e manda por e-mail o endereço, o login e a senha inicial. Nada depende de ação manual no gerenciador.
+Site público do ACTUSProt (gestão para associações de proteção veicular): apresenta o sistema e recebe o pedido da **avaliação gratuita**. Só CNPJ, nome e sobrenome, e-mail e telefone são obrigatórios. O pedido vai para o gerenciador de licenças (`ACTUS_Gerente`, compartilhado com o ACTUSPro, rota `POST /publico/avaliacao`), que consulta o CNPJ na Receita, cria a associação no **produto ACTUSProt** com a licença de avaliação, provisiona o ACTUSProt na nuvem e manda por e-mail o endereço, o login e a senha inicial. Nada depende de ação manual no gerenciador.
 
-React 19, Vite, Tailwind 4 e TypeScript. Identidade: cinza escuro, branco e vermelho (cores em `src/index.css`), a mesma do sistema. Só arquivos estáticos depois do build. Nasceu de uma cópia do `ACTUSPro_Site`.
+React 19, Vite, Tailwind 4 e TypeScript. Identidade: amarelo, cinza claro, cinza escuro e branco (cores em `src/index.css`; texto amarelo usa a versão escurecida `primary-ink`), a mesma do sistema. Só arquivos estáticos depois do build. Nasceu de uma cópia do `ACTUSFit_Site`.
 
-## Um gerenciador, dois produtos
+## Um gerenciador, três produtos
 
 O gerenciador atende o ACTUSPro, o ACTUSFit e o ACTUSProt. Toda chamada deste site manda o cabeçalho **`X-Produto: actusprot`** (`src/servicos/api.ts`); o proxy do Vite (`npm run dev`) e o `actusprot-web` da nuvem também põem. Com ele, o gerenciador cria a empresa no produto certo, confere o CNAE de associação (9499-5/00 ou 9430-8/00; outro CNAE não recusa, só gera alerta), usa o endereço `https://<subdomínio>.<domínio do ACTUSProt>` e o "Acesse o sistema" só encontra associações.
 
